@@ -4,7 +4,7 @@
    ========================================================================== */
 :root {
   /* Colors */
-  --bg: #ffffff;
+  --bg: #e3f6f5;
   --text: #111111;
   --muted: #6b6b6b;
   --accent: #1a73e8;
@@ -49,7 +49,7 @@ a {
    Header & Navigation
    ========================================================================== */
 header { 
-  background: var(--bg); 
+  background: #ffffff; 
   border-bottom: 1px solid #ddd; 
   position: sticky;
   top: 0;
@@ -257,7 +257,7 @@ header {
     left: -100%;
     width: 100%;
     height: calc(100vh - 64px);
-    background: var(--bg);
+    background: #ffffff;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
