@@ -12,6 +12,7 @@
   /* Layout */
   --maxw: 1280px;
   --padx: 24px;
+  --padx-mobile: 16px;
 }
 /* ==========================================================================
    Base Styles
@@ -41,7 +42,8 @@ a {
 .container { 
   max-width: var(--maxw); 
   margin: 0 auto; 
-  padding: 0 var(--padx); 
+  padding: 0 var(--padx);
+  width: 100%;
 }
 /* ==========================================================================
    Header & Navigation
@@ -49,6 +51,9 @@ a {
 header { 
   background: var(--bg); 
   border-bottom: 1px solid #ddd; 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .nav { 
@@ -57,11 +62,12 @@ header {
   align-items: center; 
   justify-content: space-between;
   color: #00796b;
+  flex-wrap: wrap;
 }
 
 .brand__text { 
   font-weight: 800; 
-  font-size: 28px; 
+  font-size: clamp(20px, 4vw, 28px); 
   color: #00796b;
 }
 
@@ -69,12 +75,14 @@ header {
 .menu { 
   display: flex; 
   gap: 22px;
-  color: #00796b; 
+  color: #00796b;
+  flex-wrap: wrap;
 }
 
 .menu a { 
   font-weight: 600; 
-  font-size: 15px; 
+  font-size: 15px;
+  white-space: nowrap;
 }
 
 /* Right Navigation Items */
@@ -83,6 +91,7 @@ header {
   align-items: center; 
   gap: 18px; 
   color: #00796b;
+  flex-wrap: wrap;
 }
 
 /* Button Styles */
@@ -90,7 +99,9 @@ header {
   padding: 10px 16px; 
   border-radius: 999px; 
   font-weight: 700; 
-  border: 1px solid #000; 
+  border: 1px solid #000;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .btn--ghost { 
@@ -149,7 +160,8 @@ header {
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  padding-left: 40px;
+  padding-left: clamp(20px, 5vw, 40px);
+  width: 100%;
 }
 
 .role-row { 
@@ -158,12 +170,15 @@ header {
   align-items: center; 
   padding: 28px 0; 
   border-bottom: 2px solid #efefef; 
-  position: relative; 
+  position: relative;
+  width: 100%;
+  min-width: 0;
 }
 
 .role-label { 
   font-size: clamp(26px, 3vw, 36px); 
-  font-weight: 700; 
+  font-weight: 700;
+  word-wrap: break-word;
 }
 
 /* Role Row Hover Effect */
@@ -186,30 +201,135 @@ header {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+
+/* Tablet Styles */
 @media (max-width: 1024px) { 
   .hero-inner { 
     grid-template-columns: 1fr; 
-    padding: 48px 0; 
-  } 
+    padding: 48px 0;
+    min-height: 60vh;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
 }
 
+/* Mobile Landscape */
 @media (max-width: 840px) { 
-  .menu-left { 
-    display: none; 
-  } 
+  .menu { 
+    gap: 16px;
+  }
+  
+  .menu a {
+    font-size: 14px;
+  }
   
   .brand__text { 
-    font-size: 24px; 
-  } 
+    font-size: clamp(18px, 5vw, 24px); 
+  }
+  
+  .right {
+    gap: 12px;
+  }
+  
+  .hero-inner {
+    padding: 32px 0;
+    min-height: 50vh;
+  }
+  
+  .roles-inner {
+    padding: 32px 0 48px;
+  }
 }
 
+/* Mobile Portrait */
+@media (max-width: 768px) {
+  .nav {
+    height: auto;
+    min-height: 64px;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  
+  .menu {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .right {
+    order: 2;
+    gap: 10px;
+  }
+  
+  .container {
+    padding: 0 var(--padx-mobile);
+  }
+}
+
+/* Small Mobile */
 @media (max-width: 520px) { 
   .right a:not(.btn) { 
     display: none; 
   } 
   
   .btn { 
-    padding: 9px 14px; 
-    font-size: 14px; 
-  } 
+    padding: 8px 12px; 
+    font-size: 13px;
+  }
+  
+  .menu a {
+    font-size: 13px;
+  }
+  
+  .hero h1 {
+    font-size: clamp(28px, 8vw, 42px);
+    line-height: 1.1;
+  }
+  
+  .role-label {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+  
+  .roles-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .role-row {
+    padding: 20px 0;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .nav {
+    padding: 12px 0;
+  }
+  
+  .menu {
+    gap: 8px;
+  }
+  
+  .right {
+    gap: 8px;
+  }
+  
+  .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .roles-inner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }
