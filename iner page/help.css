@@ -1,0 +1,114 @@
+/* ==========================================================================
+   CSS Variables & Root Styles
+   ========================================================================== */
+:root {
+  /* Layout */
+  --maxw: 1280px;
+  --padx: 24px;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+}
+
+html, body { 
+  height: 100%; 
+  margin: 0; 
+}
+
+body { 
+  font-family: 'Inter', sans-serif; 
+  background-color: #e3f6f5; /* Light teal background */
+}
+
+/* Layout Container */
+.container { 
+  max-width: var(--maxw); 
+  margin: 0 auto; 
+  padding: 0 var(--padx); 
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+header { 
+  background: #ffffff; 
+  border-bottom: 1px solid #ddd; 
+}
+
+.nav { 
+  height: 64px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+}
+
+.brand__text { 
+  font-weight: 800; 
+  font-size: 28px; 
+  color: #00796b;
+}
+
+/* ==========================================================================
+   Help Page Content
+   ========================================================================== */
+.help-main {
+    max-width: 900px;
+    margin: 0 auto; /* Centers the main content area */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.help-heading {
+    font-size: 42px;
+    font-weight: 800;
+    color: #00796b;
+    margin: 0 0 16px;
+}
+
+.help-intro-text {
+    font-size: 16px;
+    color: #6b6b6b;
+    line-height: 1.6;
+    max-width: 600px; /* Constrains the width of the intro text */
+    margin: 0 auto 40px auto; /* Centers the text block */
+}
+
+.help-boxes-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Allows boxes to stack on smaller screens */
+}
+
+.help-box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    max-width: 320px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+}
+
+.help-box:hover {
+    transform: translateY(-5px); /* Adds a subtle lift effect on hover */
+}
+
+.help-box h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00796b;
+    margin: 0 0 10px;
+}
+
+.help-box p {
+    font-size: 15px;
+    color: #6b6b6b;
+    line-height: 1.5;
+    margin: 0;
+}

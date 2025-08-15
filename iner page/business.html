@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DN Jr Finance - Business</title>
+    
+    <!-- Google Fonts Link for 'Inter' font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="business.css">
+</head>
+<body>
+
+    <!-- Header with Branding -->
+    <header>
+        <div class="container">
+            <div class="nav">
+                <span class="brand__text">DN Jr Finance</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Business Page Content -->
+    <main class="business-main">
+        <h1 class="business-heading">Our Live Impact</h1>
+        <p class="business-subheading">
+            See how many lenders and borrowers are connecting on our platform in real-time.
+        </p>
+
+        <div class="stats-container">
+            <!-- Live Counter for Lenders -->
+            <div class="stat-box">
+                <div class="count" id="lender-count">1,428</div>
+                <p class="label">Lenders</p>
+            </div>
+            <!-- Live Counter for Borrowers -->
+            <div class="stat-box">
+                <div class="count" id="borrower-count">9,754</div>
+                <p class="label">Borrowers</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for Live Counter Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lenderCountElement = document.getElementById('lender-count');
+            const borrowerCountElement = document.getElementById('borrower-count');
+
+            // Function to format numbers with commas
+            const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            // Function to update a counter
+            const updateCounter = (element) => {
+                // Get the current number, removing commas to parse it
+                let currentCount = parseInt(element.innerText.replace(/,/g, ''), 10);
+                
+                // Add a random small number to simulate new users
+                const increment = Math.floor(Math.random() * 3) + 1;
+                currentCount += increment;
+                
+                // Update the element text with the new formatted number
+                element.innerText = formatNumber(currentCount);
+            };
+
+            // Set an interval to update the counters every few seconds
+            setInterval(() => updateCounter(lenderCountElement), 2500); // Update lenders every 2.5 seconds
+            setInterval(() => updateCounter(borrowerCountElement), 1800); // Update borrowers every 1.8 seconds
+        });
+    </script>
+
+</body>
+</html>

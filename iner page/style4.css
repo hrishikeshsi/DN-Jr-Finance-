@@ -1,0 +1,156 @@
+/* Basic Reset and Font Styles */
+body {
+    background-color: #e3f6f5; 
+  height: 100%; 
+  margin: 0; 
+  font-family: 'Inter', sans-serif;
+	
+}
+
+/* Header Styling */
+
+
+
+
+/* Main Content and Login Form Centering */
+main {
+    display: flex;
+    justify-content: flex-start; /* Aligns container to the left */
+    padding-top: 80px;
+    padding-left: 48px;
+	justify-content: center
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px; /* Sets a maximum width for the form */
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+/* Form Input and Button Styling */
+input[type="text"] {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    background-color: #cecccc;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* General Button Styles */
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.continue-btn {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+/* "or" Separator Styling */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: #545454;
+}
+
+.line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #DDDDDD;
+}
+
+.separator span {
+    padding: 0 16px;
+}
+
+/* Google Button Styling */
+.google-btn {
+    background-color: #EEEEEE;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+/* ==========================================================================
+   CSS Variables & Root Styles
+   ========================================================================== */
+:root {
+  /* Layout */
+  --maxw: 1280px;
+  --padx: 24px;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+}
+
+html, body { 
+  height: 100%; 
+  margin: 0; 
+}
+
+body { 
+  font-family: 'Inter', sans-serif; 
+  background-color: #e3f6f5; /* Background from your reference */
+}
+
+/* Layout Container */
+.container { 
+  max-width: var(--maxw); 
+  margin: 0 auto; 
+  padding: 0 var(--padx); 
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+header { 
+  background: #ffffff; 
+  border-bottom: 1px solid #ddd; 
+}
+
+.nav { 
+  height: 64px; 
+  display: flex; 
+  align-items: center; 
+  /* We use flex-start since only the brand name exists */
+  justify-content: flex-start; 
+}
+
+.brand {
+  text-decoration: none;
+}
+
+.brand__text { 
+  font-weight: 750; 
+  font-size: 27px; 
+  color: #00796b;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+}
