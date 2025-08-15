@@ -62,27 +62,57 @@ header {
   align-items: center; 
   justify-content: space-between;
   color: #00796b;
-  flex-wrap: wrap;
+  position: relative;
 }
 
 .brand__text { 
   font-weight: 800; 
-  font-size: clamp(20px, 4vw, 28px); 
+  font-size: 28px; 
   color: #00796b;
 }
 
-/* Navigation Menu */
+/* Mobile Menu Button - Hidden by default */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: #00796b;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Hamburger animation */
+.mobile-menu-btn.active .hamburger-line:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active .hamburger-line:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Navigation Menu - Keep desktop design exactly the same */
 .menu { 
   display: flex; 
   gap: 22px;
   color: #00796b;
-  flex-wrap: wrap;
 }
 
 .menu a { 
   font-weight: 600; 
   font-size: 15px;
-  white-space: nowrap;
 }
 
 /* Right Navigation Items */
@@ -91,7 +121,6 @@ header {
   align-items: center; 
   gap: 18px; 
   color: #00796b;
-  flex-wrap: wrap;
 }
 
 /* Button Styles */
@@ -100,7 +129,6 @@ header {
   border-radius: 999px; 
   font-weight: 700; 
   border: 1px solid #000;
-  white-space: nowrap;
   text-align: center;
 }
 
@@ -202,7 +230,7 @@ header {
    Media Queries
    ========================================================================== */
 
-/* Tablet Styles */
+/* Tablet Styles - Keep desktop design */
 @media (max-width: 1024px) { 
   .hero-inner { 
     grid-template-columns: 1fr; 
@@ -215,22 +243,56 @@ header {
   }
 }
 
-/* Mobile Landscape */
-@media (max-width: 840px) { 
-  .menu { 
-    gap: 16px;
+/* Mobile Styles - Show hamburger menu */
+@media (max-width: 768px) { 
+  /* Show mobile menu button */
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  /* Hide desktop menu on mobile */
+  .menu {
+    position: fixed;
+    top: 64px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 64px);
+    background: var(--bg);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 2rem;
+    transition: left 0.3s ease;
+    border-top: 1px solid #ddd;
+    z-index: 999;
+  }
+  
+  .menu.mobile-menu-open {
+    left: 0;
   }
   
   .menu a {
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #eee;
   }
   
-  .brand__text { 
-    font-size: clamp(18px, 5vw, 24px); 
-  }
-  
+  /* Keep right side items visible but smaller */
   .right {
     gap: 12px;
+  }
+  
+  .right a:not(.btn) {
+    display: none; /* Hide Help and Language on mobile */
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
   }
   
   .hero-inner {
@@ -243,47 +305,10 @@ header {
   }
 }
 
-/* Mobile Portrait */
-@media (max-width: 768px) {
-  .nav {
-    height: auto;
-    min-height: 64px;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px 0;
-  }
-  
-  .menu {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  
-  .right {
-    order: 2;
-    gap: 10px;
-  }
-  
-  .container {
-    padding: 0 var(--padx-mobile);
-  }
-}
-
 /* Small Mobile */
 @media (max-width: 520px) { 
-  .right a:not(.btn) { 
-    display: none; 
-  } 
-  
-  .btn { 
-    padding: 8px 12px; 
-    font-size: 13px;
-  }
-  
-  .menu a {
-    font-size: 13px;
+  .container {
+    padding: 0 var(--padx-mobile);
   }
   
   .hero h1 {
@@ -309,18 +334,6 @@ header {
 @media (max-width: 375px) {
   .container {
     padding: 0 12px;
-  }
-  
-  .nav {
-    padding: 12px 0;
-  }
-  
-  .menu {
-    gap: 8px;
-  }
-  
-  .right {
-    gap: 8px;
   }
   
   .btn {
