@@ -146,6 +146,10 @@ header {
   align-items: center; 
   gap: 6px; 
 }
+
+.lang-mobile {
+  display: none; /* Hidden by default, shown in mobile menu */
+}
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -281,13 +285,17 @@ header {
     border-bottom: 1px solid #eee;
   }
   
+  .menu .lang-mobile {
+    display: block; /* Show EN in mobile menu */
+  }
+  
   /* Keep right side items visible but smaller */
   .right {
     gap: 12px;
   }
   
   .right a:not(.btn) {
-    display: none; /* Hide Help and Language on mobile */
+    display: none; /* Hide Help and Language on mobile since they're in hamburger menu */
   }
   
   .btn {
