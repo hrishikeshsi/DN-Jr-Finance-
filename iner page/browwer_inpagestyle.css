@@ -1,0 +1,200 @@
+/* ==========================================================================
+   CSS Variables & Root Styles
+   ========================================================================== */
+:root {
+  /* Colors */
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --accent: #1a73e8;
+  
+  /* Layout */
+  --maxw: 1280px;
+  --padx: 24px;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+}
+
+html, body { 
+  background-color: #e3f6f5; 
+  height: 100%; 
+  margin: 0; 
+}
+
+body { 
+  font-family: 'Inter', sans-serif; 
+  color: var(--text); 
+  background: var(--bg); 
+}
+
+a { 
+  color: inherit; 
+  text-decoration: none; 
+}
+
+/* Layout Container */
+.container { 
+  max-width: var(--maxw); 
+  margin: 0 auto; 
+  padding: 0 var(--padx); 
+}
+
+/* ==========================================================================
+   Header & Navigation (Same as your reference)
+   ========================================================================== */
+header { 
+  background: var(--bg); 
+  border-bottom: 1px solid #ddd; 
+}
+
+.nav { 
+  height: 64px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  color: #00796b;
+}
+
+.brand__text { 
+  font-weight: 800; 
+  font-size: 28px; 
+  color: #00796b;
+}
+
+.menu { 
+  display: flex; 
+  gap: 22px;
+  color: #00796b; 
+}
+
+.menu a { 
+  font-weight: 600; 
+  font-size: 15px; 
+}
+
+.right { 
+  display: flex; 
+  align-items: center; 
+  gap: 18px; 
+  color: #00796b;
+}
+
+.btn { 
+  padding: 10px 16px; 
+  border-radius: 999px; 
+  font-weight: 700; 
+  border: 1px solid #000;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn--ghost { 
+  background: transparent; 
+}
+
+.btn--solid { 
+  background: #000; 
+  color: #fff; 
+}
+
+.lang { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px; 
+}
+
+.lang svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================================================
+   Lender Selection Page Styles
+   ========================================================================== */
+.lenders-main {
+    background-color: #e3f6f5;
+    padding: 60px 0;
+}
+
+.lenders-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.lenders-heading {
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 800;
+    color: #00796b;
+    margin: 0 0 12px;
+}
+
+.lenders-subheading {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.lenders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.lender-card {
+    background: var(--bg);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.lender-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+}
+
+.lender-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 20px;
+}
+
+.interest-rate {
+    font-size: 48px;
+    font-weight: 800;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+.rate-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-left: 8px;
+}
+
+.lender-details {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.lender-details strong {
+    color: var(--text);
+}
+
+.choose-btn {
+    margin-top: auto; /* Pushes button to the bottom of the card */
+    width: 100%;
+}

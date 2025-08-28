@@ -1,0 +1,86 @@
+/* ==========================================================================
+   Base Styles (Same as your reference)
+   ========================================================================== */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --maxw: 1280px;
+  --padx: 24px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { background-color: #e3f6f5; height: 100%; margin: 0; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); }
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--padx); }
+
+/* ==========================================================================
+   Header & Navigation (Same as your reference)
+   ========================================================================== */
+header { background: var(--bg); border-bottom: 1px solid #ddd; }
+.nav { height: 64px; display: flex; align-items: center; justify-content: space-between; color: #00796b; }
+.brand__text { font-weight: 800; font-size: 28px; color: #00796b; }
+
+/* ==========================================================================
+   Profile Page Styles
+   ========================================================================== */
+.profile-main {
+    background-color: #e3f6f5;
+    padding: 60px 0;
+    min-height: calc(100vh - 65px); /* Full height minus header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-card {
+    background: var(--bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 25px;
+    border: 3px solid #00796b;
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 5px;
+    color: var(--text);
+}
+
+.profile-joined {
+    font-size: 16px;
+    color: var(--muted);
+    margin: 0;
+}
+
+.profile-body {
+    text-align: center;
+}
+
+.profile-role {
+    font-size: 24px;
+    font-weight: 700;
+}

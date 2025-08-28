@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - DN Jr Finance</title>
+
+    <!-- Google Fonts Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="profilepage.css">
+</head>
+<body>
+
+    <!-- Header (Consistent with other pages) -->
+    <header>
+        <div class="container nav">
+            <a href="#" class="brand" aria-label="DN Jr Finance home">
+                <span class="brand__text">DN Jr Finance</span>
+            </a>
+            <!-- Add full nav if needed, keeping it simple for this example -->
+        </div>
+    </header>
+
+    <!-- Main Profile Content -->
+    <main class="profile-main">
+        <div class="container">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img id="profile-image" src="https://via.placeholder.com/150" alt="User profile picture" class="profile-picture">
+                    <div class="profile-info">
+                        <h1 id="profile-name" class="profile-name">Loading...</h1>
+                        <p id="profile-joined" class="profile-joined">Joined in...</p>
+                    </div>
+                </div>
+                <div class="profile-body">
+                    <h2 id="profile-role" class="profile-role">Loading Profile...</h2>
+                    <!-- Additional profile details can go here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript to Fetch and Display Profile Data -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Get the user ID from the URL, e.g., profile.html?id=1 (for a lender)
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('id') || '1'; // Default to user 1 if no ID is provided
+
+            try {
+                // Fetch profile data from the backend
+                const response = await fetch(`http://localhost:3000/api/profile/${userId}`);
+                if (!response.ok) {
+                    throw new Error('Profile not found');
+                }
+                const data = await response.json();
+
+                // Populate the page with the fetched data
+                document.getElementById('profile-image').src = data.imageUrl;
+                document.getElementById('profile-name').innerText = data.name;
+                document.getElementById('profile-joined').innerText = `Joined in ${data.joinYear}`;
+                
+                // Dynamically set the role
+                const roleElement = document.getElementById('profile-role');
+                if (data.role === 'lender') {
+                    roleElement.innerText = 'Lender Profile';
+                    roleElement.style.color = '#00796b'; // Green for lender
+                } else {
+                    roleElement.innerText = 'Borrower Profile';
+                    roleElement.style.color = '#1a73e8'; // Blue for borrower
+                }
+
+            } catch (error) {
+                document.querySelector('.profile-card').innerHTML = `<p style="text-align:center;">Could not load profile. ${error.message}</p>`;
+            }
+        });
+    </script>
+    
+</body>
+</html>

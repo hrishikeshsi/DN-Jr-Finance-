@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application - DN Jr Finance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style4.css">
+    <!-- Custom CSS for form styles -->
+    <style>
+        /* Form-specific styles */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #00796b;
+            background-color: #fff;
+        }
+        
+        .btn-primary {
+            background-color: #00796b;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #005a52;
+        }
+        
+        .btn-secondary {
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 12px 24px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .btn-otp {
+            background-color: #00796b;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .btn-otp:hover {
+            background-color: #005a52;
+        }
+        
+        main {
+            padding-top: 80px;
+            padding-bottom: 40px;
+            min-height: calc(100vh - 64px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <a href="mainpage.html" class="brand" aria-label="DN Jr Finance home">
+                <span class="brand__text">DN Jr Finance</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h1 style="font-size: 32px; font-weight: 700; text-align: center; margin-bottom: 8px; color: #333;">Loan Application</h1>
+                <p style="text-align: center; color: #666; margin-bottom: 32px;">Secure and confidential. Let's get started.</p>
+
+                <!-- Multi-Step Form -->
+                <form id="application-form">
+                    <!-- Step 1: Personal Information -->
+                    <div id="step-1" class="form-step active">
+                        <h2 style="font-size: 20px; font-weight: 600; color: #333; margin-bottom: 24px; padding-bottom: 8px; border-bottom: 2px solid #eee;">Step 1: Personal Details</h2>
+                        <div style="margin-bottom: 24px;">
+                            <!-- Full Name -->
+                            <div style="margin-bottom: 20px;">
+                                <label for="fullName" style="display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px;">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" class="form-input" required>
+                            </div>
+                            <!-- Date of Birth -->
+                            <div style="margin-bottom: 20px;">
+                                <label for="dob" style="display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px;">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" class="form-input" required>
+                            </div>
+                            <!-- Profile Image -->
+                            <div style="margin-bottom: 20px;">
+                                <label for="profileImage" style="display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px;">Profile Image</label>
+                                <input type="file" id="profileImage" name="profileImage" class="form-input" required>
+                            </div>
+                            <!-- Full Address -->
+                            <div style="margin-bottom: 20px;">
+                                <label for="address" style="display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px;">Full Address</label>
+                                <textarea id="address" name="address" rows="3" placeholder="Enter your complete address" class="form-input" required></textarea>
+                            </div>
+                        </div>
+                        <div style="text-align: right; margin-top: 32px;">
+                            <button type="button" class="btn-primary next-btn">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Identity Verification -->
+                    <div id="step-2" class="form-step">
+                        <h2 style="font-size: 20px; font-weight: 600; color: #333; margin-bottom: 24px; padding-bottom: 8px; border-bottom: 2px solid #eee;">Step 2: Identity Verification</h2>
+                        <div style="margin-bottom: 24px;">
+                            <!-- PAN Number -->
+                            <div style="margin-bottom: 20px;">
+                                <label for="panNumber" style="display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px;">PAN Card Number</label>
+                                <input type="text" id="panNumber" name="panNumber" placeholder="Enter your 10-digit PAN" class="form-input" required>
+                            </div>
+                            <!-- Aadhaar Number -->
+                            <div style="margin-bottom: 20px;">
+                                <label for="aadhaarNumber" style="display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px;">Aadhaar Card Number</label>
+                                <input type="text" id="aadhaarNumber" name="aadhaarNumber" placeholder="Enter your 12-digit Aadhaar" class="form-input" required>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 32px;">
+                            <button type="button" class="btn-secondary prev-btn">← Previous</button>
+                            <button type="button" class="btn-primary next-btn">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Contact Verification -->
+                    <div id="step-3" class="form-step">
+                        <h2 style="font-size: 20px; font-weight: 600; color: #333; margin-bottom: 24px; padding-bottom: 8px; border-bottom: 2px solid #eee;">Step 3: Contact Verification</h2>
+                        <div style="margin-bottom: 24px;">
+                            <!-- Mobile Number -->
+                            <div style="margin-bottom: 20px;">
+                                <label for="mobileNumber" style="display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px;">Mobile Number</label>
+                                <div style="display: flex; gap: 8px; align-items: center;">
+                                    <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="Enter your mobile number" class="form-input" style="flex: 1;" required>
+                                    <button type="button" class="btn-otp">Send OTP</button>
+                                </div>
+                                <input type="text" id="mobileOtp" name="mobileOtp" placeholder="Enter Mobile OTP" class="form-input" style="margin-top: 8px; display: none;" required>
+                            </div>
+                            <!-- Email Address -->
+                            <div style="margin-bottom: 20px;">
+                                <label for="email" style="display: block; font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px;">Email Address</label>
+                                <div style="display: flex; gap: 8px; align-items: center;">
+                                    <input type="email" id="email" name="email" placeholder="Enter your email address" class="form-input" style="flex: 1;" required>
+                                    <button type="button" class="btn-otp">Send OTP</button>
+                                </div>
+                                <input type="text" id="emailOtp" name="emailOtp" placeholder="Enter Email OTP" class="form-input" style="margin-top: 8px; display: none;" required>
+                            </div>
+                        </div>
+                        <!-- Terms and Conditions -->
+                        <div style="margin-top: 32px;">
+                            <label for="terms" style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" id="terms" name="terms" style="margin-right: 8px;">
+                                <span style="font-size: 14px; color: #666;">I agree to the <a href="#" style="font-weight: 600; color: #00796b; text-decoration: underline;">Terms and Conditions</a></span>
+                            </label>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 32px;">
+                            <button type="button" class="btn-secondary prev-btn">← Previous</button>
+                            <button type="submit" class="btn-primary">Submit Application</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: white; border-top: 1px solid #ddd; margin-top: 64px; padding: 40px 0;">
+        <div class="container" style="text-align: center;">
+            <div style="margin-bottom: 32px;">
+                <h4 style="font-weight: 600; color: #333; margin-bottom: 12px;">DN Jr Finance</h4>
+                <p style="font-size: 14px; color: #666;">Your trusted partner for borrowing and lending solutions.</p>
+            </div>
+            <div style="padding-top: 24px; border-top: 1px solid #eee; font-size: 14px; color: #666;">
+                &copy; 2025 DN Jr Finance. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Simple form step navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.form-step');
+            const nextBtns = document.querySelectorAll('.next-btn');
+            const prevBtns = document.querySelectorAll('.prev-btn');
+            let currentStep = 0;
+            
+            function showStep(stepIndex) {
+                steps.forEach((step, index) => {
+                    step.classList.toggle('active', index === stepIndex);
+                });
+            }
+            
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (currentStep < steps.length - 1) {
+                        currentStep++;
+                        showStep(currentStep);
+                    }
+                });
+            });
+            
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (currentStep > 0) {
+                        currentStep--;
+                        showStep(currentStep);
+                    }
+                });
+            });
+            
+            // OTP functionality
+            document.querySelectorAll('.btn-otp').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const parentDiv = this.parentElement;
+                    const otpInput = parentDiv.parentElement.querySelector('input[id$="Otp"]');
+                    if (otpInput) {
+                        otpInput.style.display = 'block';
+                        this.textContent = 'Resend OTP';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
